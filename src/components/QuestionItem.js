@@ -1,8 +1,13 @@
-import React, { useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styled, { css } from "styled-components";
 
 const ItemBoxTemplate = styled.div`
   margin-bottom: 30rem;
+  ${(props) =>
+    props.hide &&
+    css`
+      display: none;
+    `}
 `;
 
 const ItemBox = styled.div`
@@ -15,20 +20,21 @@ const ItemBox = styled.div`
   }
 `;
 
-const handleHide = (event) => {
-  console.log(event);
-};
+// const handleHide = (event) => {
+//   console.log(event);
+// };
 
-const handlePoint = (event) => {};
+// const handlePoint = (event) => {};
 
 const QuestionItem = () => {
+  const [isHide, setIsHide] = useState(false);
   return (
     <>
-      <ItemBoxTemplate>
-        <ItemBox>매운거</ItemBox>
+      <ItemBoxTemplate hide={isHide}>
+        <ItemBox onClick={setIsHide(true)}>매운거</ItemBox>
         <ItemBox>담백한거</ItemBox>
       </ItemBoxTemplate>
-      <ItemBoxTemplate>
+      <ItemBoxTemplate hide={false}>
         <ItemBox>술안주</ItemBox>
         <ItemBox>식사</ItemBox>
       </ItemBoxTemplate>
