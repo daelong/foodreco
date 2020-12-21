@@ -1,6 +1,5 @@
-import React, { Children } from "react";
-import styled, { css } from "styled-components";
-import QuestionItem from "./QuestionItem";
+import React from "react";
+import styled from "styled-components";
 
 const Box = styled.div`
   background-color: white;
